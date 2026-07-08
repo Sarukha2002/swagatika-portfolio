@@ -5,6 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Swagatika Arukha — Senior Technical Product Manager</title>
 <meta name="description" content="Swagatika Arukha — Senior Technical Product Manager. Platform engineering, DEM, micro frontends, AI recommendation systems, and experimentation platforms. $2M+ ARR influenced, 100M+ users served.">
+<meta name="keywords" content="product manager, platform engineering, DEM, telemetry, AI infrastructure, Chicago">
+<meta name="author" content="Swagatika Arukha">
+<link rel="canonical" href="https://swagatika-portfolio-sable.vercel.app">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%236575DE' width='100' height='100'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' fill='%23F6F2E7' font-size='50' font-weight='900' font-family='system-ui'>SA</text></svg>" type="image/svg+xml">
+
+<meta property="og:title" content="Swagatika Arukha — Senior Technical PM">
+<meta property="og:description" content="Platform engineering, DEM, AI infrastructure. $2M+ ARR influenced.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://swagatika-portfolio-sable.vercel.app">
+<meta property="og:image" content="https://swagatika-portfolio-sable.vercel.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Swagatika Arukha — Senior Technical PM">
+<meta name="twitter:description" content="Platform engineering, AI infrastructure, 100M+ users.">
+<meta name="twitter:image" content="https://swagatika-portfolio-sable.vercel.app/assets/og-image.png">
+
+<meta name="theme-color" content="#6575DE">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Swagatika Arukha",
+  "jobTitle": "Senior Technical Product Manager",
+  "url": "https://swagatika-portfolio-sable.vercel.app",
+  "description": "Senior Technical Product Manager specializing in platform engineering, DEM, and AI infrastructure.",
+  "sameAs": [
+    "https://linkedin.com/in/swagatikaarukha",
+    "https://github.com/Sarukha2002"
+  ],
+  "knowsAbout": [
+    "Platform Engineering",
+    "Digital Experience Monitoring",
+    "Session Replay",
+    "AI Infrastructure",
+    "Telemetry",
+    "Experimentation Platforms"
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
@@ -80,6 +125,8 @@
   .skip-link { position: absolute; left: -9999px; }
   .skip-link:focus { left: 16px; top: 16px; z-index: 100; background: #1E1B16; color: #F6F2E7; padding: 10px 16px; }
 </style>
+
+<script defer data-domain="swagatika-portfolio-sable.vercel.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body class="bg-cream font-body text-[17px] leading-relaxed text-ink">
 
@@ -837,6 +884,83 @@
     }, { rootMargin: '-40% 0px -55% 0px' });
     ids.forEach(id => { const el = document.getElementById(id); if (el) navIO.observe(el); });
   }
+</script>
+
+<script>
+  const ANALYTICS_CONFIG = {
+    trackingEnabled: typeof window.plausible !== 'undefined',
+    debug: true,
+    events: {
+      RESUME_DOWNLOAD: 'resume-download',
+      EMAIL_CLICK: 'email-click',
+      LINKEDIN_CLICK: 'linkedin-click',
+      GITHUB_CLICK: 'github-click',
+      NAV_CLICK: 'navigation-click'
+    }
+  };
+
+  function trackEvent(eventName, data = {}) {
+    if (ANALYTICS_CONFIG.trackingEnabled && window.plausible) {
+      window.plausible(eventName, { props: data });
+      if (ANALYTICS_CONFIG.debug) {
+        console.log(`✓ [Telemetry] Event: ${eventName}`, data);
+      }
+    } else if (ANALYTICS_CONFIG.debug) {
+      console.warn(`✗ [Telemetry] Analytics unavailable`);
+    }
+  }
+
+  document.querySelectorAll('a[href*="resume"]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackEvent(ANALYTICS_CONFIG.events.RESUME_DOWNLOAD, {
+        referrer: document.referrer || 'direct',
+        timestamp: new Date().toISOString()
+      });
+    });
+  });
+
+  const emailLink = document.querySelector('a[href^="mailto:"]');
+  if (emailLink) {
+    emailLink.addEventListener('click', () => {
+      trackEvent(ANALYTICS_CONFIG.events.EMAIL_CLICK, {
+        action: 'contact-initiated',
+        timestamp: new Date().toISOString()
+      });
+    });
+  }
+
+  const linkedinLink = document.querySelector('a[href*="linkedin"]');
+  if (linkedinLink) {
+    linkedinLink.addEventListener('click', () => {
+      trackEvent(ANALYTICS_CONFIG.events.LINKEDIN_CLICK, {
+        platform: 'linkedin',
+        timestamp: new Date().toISOString()
+      });
+    });
+  }
+
+  const githubLink = document.querySelector('a[href*="github"]');
+  if (githubLink) {
+    githubLink.addEventListener('click', () => {
+      trackEvent(ANALYTICS_CONFIG.events.GITHUB_CLICK, {
+        platform: 'github',
+        timestamp: new Date().toISOString()
+      });
+    });
+  }
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const section = link.getAttribute('href').replace('#', '');
+      trackEvent(ANALYTICS_CONFIG.events.NAV_CLICK, {
+        section: section,
+        timestamp: new Date().toISOString()
+      });
+    });
+  });
+
+  console.log('%c[Telemetry] Portfolio analytics initialized', 'color: #6575DE; font-weight: bold;');
+  console.log('Tracking enabled:', ANALYTICS_CONFIG.trackingEnabled);
 </script>
 
 </body>
