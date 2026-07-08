@@ -19,7 +19,7 @@ Disallow: /*filter=
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://my-portfolio.com/sitemap.xml
+Sitemap: https://swagatika-portfolio-sable.vercel.app/sitemap.xml
 
 # Block bad bots
 User-agent: MJ12bot

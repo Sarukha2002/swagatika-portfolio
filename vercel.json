@@ -84,7 +84,7 @@
   ],
 
   "env": {
-    "ANALYTICS_DOMAIN": "my-portfolio.com",
-    "SITE_URL": "https://my-portfolio.com"
+    "ANALYTICS_DOMAIN": "swagatika-portfolio-sable.vercel.app",
+    "SITE_URL": "https://swagatika-portfolio-sable.vercel.app"
   }
 }
