@@ -1,0 +1,42 @@
+# robots.txt - SEO Crawl Configuration
+# Swagatika Arukha Portfolio
+# Purpose: Allow search engines to crawl production domain while blocking staging/preview
+
+User-agent: *
+Allow: /
+Disallow: /preview
+Disallow: /staging
+Disallow: /admin
+Disallow: /?*
+Disallow: /*?*
+Disallow: /*&*
+Disallow: /*.json
+Disallow: /*.xml
+Disallow: /*sort=
+Disallow: /*filter=
+
+# Crawl delay (optional - be respectful to crawlers)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://my-portfolio.com/sitemap.xml
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Disallow: /
+
+# Allow Google, Bing, and other major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /

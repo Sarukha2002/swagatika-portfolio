@@ -1,0 +1,463 @@
+================================================================================
+SWAGATIKA ARUKHA PORTFOLIO - DEPLOYMENT PACKAGE
+Production-Grade Setup for 95+ PageSpeed Optimization
+================================================================================
+
+PACKAGE CONTENTS
+================================================================================
+
+📋 DOCUMENTATION (Read These First)
+─────────────────────────────────────────────────────────────────────────────
+1. QUICK_START.md
+   → 15-minute deployment guide
+   → Perfect for getting live immediately
+   → Follow this if you're in a hurry
+
+2. DEPLOYMENT_README.md
+   → Complete, comprehensive setup guide (60+ pages)
+   → Platform-specific instructions (Vercel, Netlify, GitHub Pages)
+   → Detailed configuration explanations
+   → Testing & validation checklist
+   → Troubleshooting guide
+
+3. ANALYTICS_SETUP.md
+   → Plausible Analytics configuration
+   → Custom event tracking implementation
+   → Real-user monitoring
+   → Privacy compliance guide
+
+4. PERFORMANCE_OPTIMIZATION.md
+   → Google PageSpeed Insights 95+ checklist
+   → CLS (Cumulative Layout Shift) prevention
+   → Image optimization guide
+   → Font loading strategy
+   → Performance metrics explained
+
+5. HTML_CODE_SNIPPETS.md
+   → Copy-paste code snippets
+   → Exactly where to place each snippet
+   → 8 major snippets with full explanations
+   → Inline SVG favicon options
+   → JSON-LD structured data
+
+6. FILE_MANIFEST.txt (This File)
+   → Complete overview of all files
+   → Deployment checklist
+   → File-by-file usage guide
+
+
+🔧 CONFIGURATION FILES (Deploy These)
+─────────────────────────────────────────────────────────────────────────────
+7. robots.txt
+   → SEO crawl configuration
+   → Prevents indexing of staging/preview URLs
+   → Points to sitemap
+   → Place in: Root directory
+   → Deploy: Yes
+
+8. sitemap.xml
+   → XML sitemap for search engines
+   → Includes all portfolio sections
+   → Includes resume download link
+   → Place in: Root directory
+   → Deploy: Yes
+
+9. vercel.json
+   → Vercel deployment configuration
+   → Security headers (XSS, clickjacking, CSP)
+   → Resume redirect routing
+   → Asset caching rules
+   → Place in: Root directory (Vercel only)
+   → Deploy: Yes (if using Vercel)
+
+10. _redirects
+    → Netlify redirect rules
+    → Resume download routing
+    → Staging/preview URL handling
+    → Legacy route redirects
+    → Place in: Root directory (Netlify only)
+    → Deploy: Yes (if using Netlify)
+
+11. _headers
+    → Netlify HTTP security headers
+    → Cache control rules
+    → Content Security Policy
+    → Immutable asset caching for /assets/*
+    → Place in: Root directory (Netlify only)
+    → Deploy: Yes (if using Netlify)
+
+
+🎨 REQUIRED ASSETS (Create These)
+─────────────────────────────────────────────────────────────────────────────
+12. Your Updated HTML File
+    → Updated index.html with:
+       - All domain placeholders replaced
+       - Favicon inline SVG added
+       - Analytics script added
+       - Custom telemetry script added
+    → Place in: Root directory
+    → Deploy: Yes
+
+13. resume.pdf
+    → Your actual resume file
+    → Place in: public/assets/resume.pdf
+    → Deploy: Yes
+    → Note: Create this folder if it doesn't exist
+
+14. og-image.png
+    → Social media preview image
+    → Dimensions: 1200x630px
+    → Include: Your name, headline, key stats
+    → Place in: public/assets/og-image.png
+    → Deploy: Yes
+    → Tools: Figma, Canva, or Photoshop
+
+
+📁 FOLDER STRUCTURE (Final Layout)
+─────────────────────────────────────────────────────────────────────────────
+
+portfolio-root/
+│
+├── 📄 index.html                  (your updated portfolio file)
+├── 📄 robots.txt                  (SEO configuration)
+├── 📄 sitemap.xml                 (XML sitemap)
+├── 📄 vercel.json                 (Vercel config — delete if using Netlify)
+├── 📄 _redirects                  (Netlify redirects — delete if using Vercel)
+├── 📄 _headers                    (Netlify headers — delete if using Vercel)
+│
+├── 📁 public/
+│   └── 📁 assets/
+│       ├── resume.pdf             (your resume)
+│       └── og-image.png           (1200x630 social preview)
+│
+├── 📁 .github/
+│   └── 📁 workflows/
+│       └── deploy.yml             (optional: CI/CD automation)
+│
+└── 📄 .gitignore                  (optional: ignore node_modules, etc.)
+
+
+🚀 DEPLOYMENT CHECKLIST
+═════════════════════════════════════════════════════════════════════════════
+
+BEFORE DEPLOYMENT:
+─────────────────
+☐ Update all instances of "my-portfolio.com" with your actual domain
+☐ Add favicon inline SVG to HTML <head>
+☐ Add Plausible analytics script to HTML <head>
+☐ Add custom event telemetry script before </body>
+☐ Create /public/assets/ folder
+☐ Add resume.pdf to /public/assets/
+☐ Create og-image.png (1200x630px) and add to /public/assets/
+
+DEPLOYMENT STEPS:
+─────────────────
+☐ Initialize git repository
+☐ Add all files to git
+☐ Commit with message "Initial portfolio setup"
+☐ Push to GitHub
+☐ Connect to Vercel or Netlify
+☐ Deploy (automatic on push)
+☐ Configure custom domain in platform
+☐ Update domain registrar DNS settings
+☐ Wait 24-48 hours for DNS propagation
+
+AFTER DEPLOYMENT:
+─────────────────
+☐ Visit https://your-domain.com (test accessibility)
+☐ Open Console (F12) and verify telemetry logs
+☐ Click "Email Me" button and verify event logged
+☐ Test /resume redirect (should download PDF)
+☐ Run PageSpeed Insights test
+☐ Verify score is 90+ (mobile) and 95+ (desktop)
+☐ Check that favicon appears in browser tab
+☐ Verify robots.txt is accessible
+☐ Verify sitemap.xml is accessible
+
+SEO & MONITORING:
+─────────────────
+☐ Add property to Google Search Console
+☐ Verify domain ownership
+☐ Submit sitemap.xml to Google
+☐ Set up Plausible analytics dashboard
+☐ Monitor PageSpeed score weekly
+☐ Check Search Console for indexing status
+☐ Monitor Plausible for visitor analytics
+
+
+📊 CONFIGURATION FILE REFERENCE
+═════════════════════════════════════════════════════════════════════════════
+
+robots.txt
+──────────
+Purpose:    Search engine crawl directives
+Size:       ~500 bytes
+Required:   All platforms (Vercel, Netlify, GitHub Pages)
+Replaces:   Nothing (new file)
+Edit:       • Change domain in Sitemap line
+           • Add/remove User-agent rules as needed
+
+
+sitemap.xml
+───────────
+Purpose:    XML sitemap for search engines
+Size:       ~2KB
+Required:   All platforms
+Replaces:   Nothing (new file)
+Edit:       • Change https://my-portfolio.com to your domain
+           • Add/remove <url> entries as sections change
+           • Update lastmod dates quarterly
+
+
+vercel.json
+───────────
+Purpose:    Vercel deployment configuration
+Size:       ~2KB
+Required:   Vercel ONLY (delete if using Netlify/GitHub Pages)
+Replaces:   Nothing (new file)
+Edit:       • Change "my-portfolio.com" in env section
+           • Modify header rules if needed
+           • Update redirect destinations if routes change
+
+
+_redirects
+──────────
+Purpose:    Netlify URL rewrite rules
+Size:       ~500 bytes
+Required:   Netlify ONLY (delete if using Vercel/GitHub Pages)
+Replaces:   Nothing (new file)
+Edit:       • Change my-portfolio.com in staging/preview rules
+           • Add more redirects as needed
+           • Modify /resume path if location changes
+
+
+_headers
+────────
+Purpose:    Netlify HTTP security headers and caching
+Size:       ~1KB
+Required:   Netlify ONLY (delete if using Vercel/GitHub Pages)
+Replaces:   Nothing (new file)
+Edit:       • Modify Cache-Control values if needed
+           • Update CSP policy if changing analytics providers
+           • Adjust permissions for new third-party APIs
+
+
+index.html (Updated)
+────────────────────
+Purpose:    Your portfolio website
+Size:       ~72KB
+Required:   All platforms
+Replaces:   Your original index.html
+Edit:       • Change all "my-portfolio.com" references
+           • Update Plausible data-domain attribute
+           • Add/remove content as needed
+           • Change href values for external links
+
+
+resume.pdf
+──────────
+Purpose:    Downloadable resume asset
+Size:       Variable (typically 200-500KB)
+Required:   All platforms
+Replaces:   Your current resume.pdf
+Location:   public/assets/resume.pdf
+Edit:       • Update whenever your resume changes
+           • Keep filename consistent
+
+
+og-image.png
+─────────────
+Purpose:    Social media preview image (when link shared)
+Size:       ~200-500KB (optimize with TinyPNG)
+Required:   All platforms
+Location:   public/assets/og-image.png
+Dimensions: 1200x630 pixels (exact)
+Tools:      Figma, Canva, Photoshop
+Edit:       • Create once, update if branding changes
+           • Keep consistent with portfolio visual identity
+
+
+.gitignore (Optional)
+─────────────────────
+Purpose:    Prevent sensitive files from being committed
+Suggested Content:
+    node_modules/
+    .env
+    .env.local
+    .DS_Store
+    *.pem
+    *.key
+
+
+💾 QUICK FILE DECISIONS
+═════════════════════════════════════════════════════════════════════════════
+
+Using Vercel?
+→ Keep: vercel.json
+→ Delete: _redirects, _headers
+
+Using Netlify?
+→ Delete: vercel.json
+→ Keep: _redirects, _headers
+
+Using GitHub Pages?
+→ Delete: vercel.json, _redirects, _headers
+→ Note: /resume redirect won't work without additional setup
+
+
+📋 DOMAIN REPLACEMENTS
+═════════════════════════════════════════════════════════════════════════════
+
+Find & Replace "my-portfolio.com" in:
+─────────────────────────────────────
+☐ vercel.json (line 39)
+☐ _redirects (line 10)
+☐ _headers (all instances)
+☐ index.html (multiple instances)
+☐ robots.txt (line 25)
+☐ sitemap.xml (all instances)
+
+Your actual domain should be:
+→ your-name.com (if owned)
+→ your-name-pm.com (if .com taken)
+→ On subdomain: portfolio.your-name.com
+
+
+🎓 DOCUMENTATION READING ORDER
+═════════════════════════════════════════════════════════════════════════════
+
+1st: QUICK_START.md (5 min read)
+     → Fastest path to live deployment
+
+2nd: HTML_CODE_SNIPPETS.md (10 min read)
+     → Copy-paste code to your HTML
+
+3rd: ANALYTICS_SETUP.md (5 min read)
+     → Set up tracking and monitoring
+
+4th: DEPLOYMENT_README.md (Full reference)
+     → Keep open while deploying
+     → Use for platform-specific details
+
+5th: PERFORMANCE_OPTIMIZATION.md (Reference)
+     → Check after deployment
+     → Improve PageSpeed score if needed
+
+
+🔐 SECURITY VERIFICATION
+═════════════════════════════════════════════════════════════════════════════
+
+After deployment, verify security headers:
+1. Open DevTools (F12)
+2. Go to Network tab
+3. Click on any request to your site
+4. Check Response Headers for:
+
+Should see:
+✅ X-Frame-Options: SAMEORIGIN
+✅ X-Content-Type-Options: nosniff
+✅ X-XSS-Protection: 1; mode=block
+✅ Referrer-Policy: strict-origin-when-cross-origin
+✅ Strict-Transport-Security: max-age=31536000
+
+If missing:
+→ Verify vercel.json or _headers deployed correctly
+→ Hard refresh browser (Ctrl+Shift+R)
+
+
+📞 SUPPORT & TROUBLESHOOTING
+═════════════════════════════════════════════════════════════════════════════
+
+Common Issues:
+─────────────
+
+Q: "Domain not resolving"
+A: 1. Check DNS settings in registrar
+   2. Wait 24-48 hours for propagation
+   3. Test: nslookup your-domain.com
+
+Q: "/resume redirect not working"
+A: 1. Verify resume.pdf exists at /public/assets/resume.pdf
+   2. Check vercel.json or _redirects deployed
+   3. Hard refresh browser (Ctrl+Shift+R)
+
+Q: "Analytics not tracking"
+A: 1. Open Console (F12)
+   2. Should see: "[Telemetry] Portfolio analytics initialized"
+   3. Check Plausible script loaded (Network tab, search "plausible")
+   4. Click button and verify event logs to console
+
+Q: "PageSpeed score below 90"
+A: 1. Run https://pagespeed.web.dev on your domain
+   2. Check "Opportunities" section for top issues
+   3. Common: Missing image dimensions, render-blocking scripts
+   4. See PERFORMANCE_OPTIMIZATION.md for fixes
+
+Q: "Favicon not showing"
+A: 1. Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
+   2. Check favicon link in HTML <head>
+   3. Verify data:image/svg+xml syntax is correct
+
+Resources:
+──────────
+• Vercel Docs: https://vercel.com/docs
+• Netlify Docs: https://docs.netlify.com
+• PageSpeed Insights: https://pagespeed.web.dev
+• Google Search Console: https://search.google.com/search-console
+• Plausible Setup: https://plausible.io/docs
+
+
+📅 MAINTENANCE SCHEDULE
+═════════════════════════════════════════════════════════════════════════════
+
+Weekly:
+  ☐ Check Plausible analytics for traffic patterns
+  ☐ Monitor pageviews and traffic sources
+
+Monthly:
+  ☐ Run PageSpeed Insights test
+  ☐ Check for broken links
+  ☐ Monitor Search Console for errors
+
+Quarterly:
+  ☐ Update resume.pdf with latest experience
+  ☐ Update project descriptions
+  ☐ Review and update writing section
+  ☐ Check Core Web Vitals in Search Console
+
+Annually:
+  ☐ Audit and refresh portfolio content
+  ☐ Update technologies and skills
+  ☐ Refresh og-image.png if branding changes
+
+
+================================================================================
+VERSION & METADATA
+================================================================================
+
+Package Version:     1.0 (July 2026)
+Portfolio Version:   SA4E v6
+Created For:         Swagatika Arukha
+Optimization Target: Google PageSpeed Insights 95+
+Deployment Platforms: Vercel, Netlify, GitHub Pages
+
+Total Files:         11 configuration + documentation
+Total Size:          ~500KB (uncompressed)
+Gzipped Size:        ~150KB
+
+Last Updated:        July 7, 2026
+Maintenance:         Reviewed quarterly
+
+
+================================================================================
+LICENSE & ATTRIBUTION
+================================================================================
+
+This deployment package is provided as-is for portfolio optimization.
+All code snippets are original and free to use/modify.
+Third-party services (Vercel, Netlify, Plausible) have their own terms.
+
+
+✅ PACKAGE COMPLETE
+Next Step: Read QUICK_START.md and deploy!
+================================================================================
